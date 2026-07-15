@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Automatically styles Django's {{ form.as_p }} output */
+        form p { margin-bottom: 1.25rem; }
+        form label { display: block; margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500; color: #374151; }
+        form input { width: 100%; padding: 0.625rem 1rem; border: 1px solid #D1D5DB; border-radius: 0.5rem; background: #F9FAFB; }
+        form input:focus { outline: none; border-color: #3B82F6; background: white; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+    </style>
+</head>
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-gray-100">
+        <div class="text-center mb-8">
+            <div class="h-12 w-12 bg-blue-600 rounded-full mx-auto flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800">Welcome Back</h2>
+            <p class="text-gray-500 text-sm mt-1">Please enter your details to sign in.</p>
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-200 mt-4 shadow-md hover:shadow-lg">
+                Sign In to Dashboard
+            </button>
+        </form>
+
+        <p class="text-center mt-6 text-sm text-gray-500">
+            Lost access? <a href="/forgot-password/" class="text-blue-600 hover:text-blue-800 font-medium hover:underline">Recover Password</a>
+        </p>
+    </div>
+
+</body>
+</html>

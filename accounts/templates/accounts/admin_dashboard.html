@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Top Navigation Bar -->
+    <nav class="bg-indigo-900 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-white font-bold text-xl tracking-wider">ADMIN<span class="font-light text-indigo-300">Dashboard</span></span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-indigo-200 text-sm">Logged in as: <strong>{{ request.user.username }}</strong></span>
+                    <a href="/logout/" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium transition">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">System Overview</h1>
+        
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 class="text-gray-500 text-sm font-medium">Total Registered Users</h3>
+                <p class="text-3xl font-bold text-gray-800 mt-2">1,248</p>
+                <p class="text-green-500 text-sm mt-2 font-medium">↑ 12% from last month</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 class="text-gray-500 text-sm font-medium">Active Distributors</h3>
+                <p class="text-3xl font-bold text-gray-800 mt-2">42</p>
+                <p class="text-green-500 text-sm mt-2 font-medium">↑ 3 new this week</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 class="text-gray-500 text-sm font-medium">System Status</h3>
+                <div class="flex items-center mt-2">
+                    <div class="h-3 w-3 bg-green-500 rounded-full mr-2"></div>
+                    <p class="text-xl font-bold text-gray-800">All Systems Operational</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Management Section -->
+        <div class="bg-white shadow-sm rounded-xl border border-gray-100 p-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Quick Actions</h2>
+            <div class="flex space-x-4">
+                <a href="/django-admin/" target="_blank" class="bg-indigo-50 text-indigo-700 hover:bg-indigo-100 px-6 py-3 rounded-lg font-medium transition border border-indigo-200">
+                    ⚙️ Open Django Database Admin
+                </a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
